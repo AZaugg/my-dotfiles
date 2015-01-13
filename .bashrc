@@ -19,7 +19,6 @@ function sshaws () {
     echo "No Ip address could be found"
   elif [ ! -e ~/.ssh/"$key" ]; then
     echo "SSH key %key could not be found in ~/.ssh/"
-    exit 0
   else
     ssh  $USERNAME@$ip
   fi
