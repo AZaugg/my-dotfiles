@@ -11,8 +11,8 @@ function sshaws () {
   fi
   USERNAME="ec2-user"
 
-  ip=$(aws ec2 describe-instances --instance-ids  $1 $profile | egrep -o '"PrivateIpAddress": "([0-9]{1,3}[\.]){3}[0-9]{1,3}"' |uniq| awk -F\" '{print $(NF-1)}')
-  key=$(aws ec2 describe-instances --instance-ids  $1 $profile | egrep -o '"KeyName": ".*?"' | awk -F\" '{print $(NF-1)}')
+  ip=$(aws ec2 describe-instances --instance-ids  $1 $profile --output json | egrep -o '"PrivateIpAddress": "([0-9]{1,3}[\.]){3}[0-9]{1,3}"' |uniq| awk -F\" '{print $(NF-1)}')
+  key=$(aws ec2 describe-instances --instance-ids  $1 $profile --output json | egrep -o '"KeyName": ".*?"' | awk -F\" '{print $(NF-1)}')
 
   if [ -z "$ip" ]; then
     echo "No Ip address could be found"
