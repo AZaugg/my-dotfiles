@@ -9,7 +9,6 @@ function sshaws () {
   elif [ ! -z $PROFILE ]; then
     profile="--profile $PROFILE"
   fi
-
   USERNAME="ec2-user"
 
   ip=$(aws ec2 describe-instances --instance-ids  $1 $profile | egrep -o '"PrivateIpAddress": "([0-9]{1,3}[\.]){3}[0-9]{1,3}"' |uniq| awk -F\" '{print $(NF-1)}')
@@ -17,9 +16,9 @@ function sshaws () {
 
   if [ -z "$ip" ]; then
     echo "No Ip address could be found"
-  elif [ ! -e ~/.ssh/"$key" ]; then
+  elif [ ! -e ~/.ssh/"$key"* ]; then
     echo "SSH key %key could not be found in ~/.ssh/"
   else
-    ssh  $USERNAME@$ip
+    ssh -i  ~/.ssh/"$key"* $USERNAME@$ip
   fi
 }
