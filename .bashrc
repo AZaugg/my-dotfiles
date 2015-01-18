@@ -1,7 +1,7 @@
 function sshaws () {
   if [ -z "$1" ]; then
     echo "no instance ID passed in"
-    exit 0
+    return 1
   fi
 
   if [ ! -z "$2" ]; then
