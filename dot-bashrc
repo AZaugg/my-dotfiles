@@ -57,6 +57,12 @@ if [ -f /usr/local/bin/virtualenvwrapper.sh  ]; then
    source /usr/local/bin/virtualenvwrapper.sh
 fi
 
+if [ "$(uname)" = "SunOS" ]; then
+  PATH=${PATH}:/usr/bin:/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/usr/ucb/:/usr/local/samba/bin
+  MANPATH=/usr/share/man:/usr/sfw/man
+  export TERM=xtermc
+fi
+
 # Set autocomplete for aws CLI
 complete  -C aws_completer aws
 
