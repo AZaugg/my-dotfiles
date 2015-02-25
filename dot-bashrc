@@ -51,3 +51,6 @@ if [ -f /usr/local/bin/virtualenvwrapper.sh  ]; then
    source /usr/local/bin/virtualenvwrapper.sh
 fi
 
+# Set autocomplete for aws CLI
+complete  -C aws_completer aws
+
