@@ -1,5 +1,10 @@
 # aliases
 alias ls='ls -F'
+alias cddev='cd ~/Development'
+
+# Set my history size
+HISTSIZE=10000
+HISTFILESIZE=1000
 
 function sshaws () {
   if [ -z "$1" ]; then
@@ -40,6 +45,9 @@ export PS1=`echo '\033[0;31;1m[\u@\h] \033[0;36;1m[\T] \033[0;32;1m $PWD \033[0;
 if [ -f ~/.git-completion.bash ]; then
         . ~/.git-completion.bash
 fi
-
-
+if [ -f /usr/local/bin/virtualenvwrapper.sh  ]; then
+   export WORKON_HOME=$HOME/.virtualenvs
+   export PROJECT_HOME=$HOME/Development/python/
+   source /usr/local/bin/virtualenvwrapper.sh
+fi
 
