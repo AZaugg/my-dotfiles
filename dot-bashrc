@@ -30,6 +30,7 @@ function sshaws () {
       echo "SSH key %key could not be found in ~/.ssh/"
     else
       ssh -i ~/.ssh/"$key"*  $USERNAME@$ip
+      return 0
     fi
   echo "Host $1 not available"
   fi
