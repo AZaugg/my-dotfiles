@@ -1,3 +1,6 @@
+# aliases
+alias ls='ls -F'
+
 function sshaws () {
   if [ -z "$1" ]; then
     echo "no instance ID passed in"
@@ -23,3 +26,20 @@ function sshaws () {
     ssh  $USERNAME@$ip
   fi
 }
+
+function git_branch {
+   branch=$(git branch  2> /dev/null | grep \* | awk '{print $NF}')
+
+   if [[ $branch != "" ]]; then
+     echo "[$branch]"
+   fi
+}
+
+export PS1=`echo '\033[0;31;1m[\u@\h] \033[0;36;1m[\T] \033[0;32;1m $PWD \033[0;0m''$(git_branch)'" \n$ "`
+
+if [ -f ~/.git-completion.bash ]; then
+        . ~/.git-completion.bash
+fi
+
+
+
