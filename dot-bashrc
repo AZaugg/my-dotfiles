@@ -11,6 +11,11 @@ HISTSIZE=10000
 HISTFILESIZE=1000
 
 function sshaws () {
+  if [ "$#" -ne 2 ]; then
+    echo "Not enough arguments"
+    return 1
+  fi
+  
   if [ -z "$1" ]; then
     echo "no instance ID passed in"
     return 1
