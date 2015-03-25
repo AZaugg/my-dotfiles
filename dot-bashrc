@@ -18,6 +18,8 @@ alias cddev='cd ~/Development'
 # My Exports
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Development/python/
+export ALTERNATE_EDITOR=vim EDITOR=vim VISUAL=vim
+
    
 # Set my history size
 HISTSIZE=10000
