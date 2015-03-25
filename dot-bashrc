@@ -20,10 +20,13 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Development/python/
 export ALTERNATE_EDITOR=vim EDITOR=vim VISUAL=vim
 
-   
 # Set my history size
 HISTSIZE=10000
 HISTFILESIZE=1000
+
+if [ -f $HOME/.http_proxy ];then
+       source $HOME/.http_proxy
+fi
 
 function sshaws () {
   if [ "$#" -ne 2 ]; then
