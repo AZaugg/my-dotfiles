@@ -4,6 +4,9 @@ case $- in
       *) return;;
 esac
 
+# append to the history file, don't overwrite it
+shopt -s histappend
+
 # aliases
 alias ls='ls -FG'
 alias cddev='cd ~/Development'
