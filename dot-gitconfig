@@ -1,0 +1,18 @@
+[user]
+	name = Andy Zaugg
+	email = 
+[alias]
+	co = checkout
+	fc = diff --name-only --diff-filter=U
+	loga = log --abbrev-commit --decorate --pretty=oneline
+[push]
+	default = current
+[pull]
+	default = current
+[core]
+	editor = vim
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
