@@ -27,3 +27,5 @@
 	smtpuser = 
 #[http]
 	#proxy = http://10.0.0.28
+[merge]
+	tool = vimdiff
