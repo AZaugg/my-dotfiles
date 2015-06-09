@@ -113,3 +113,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# For site specific bash configs
+if [ -f ~/.bash_site_specific ]; then
+   source  ~/.bash_site_specific
+fi
