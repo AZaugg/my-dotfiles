@@ -84,7 +84,7 @@ function git_branch {
    fi
 }
 
-export PS1=`echo '\033[0;31;1m[\u@\h] \033[0;36;1m[\T] \033[0;32;1m $PWD \033[0;0m''$(git_branch)'" \n$ "`
+export PS1=`echo '\033[0;31;1m[\u@\h] \033[0;36;1m[\T] \033[0;32;1m \w \033[0;0m''$(git_branch)'" \n$ "`
 
 if [ -f ~/.git-completion.bash ]; then
         . ~/.git-completion.bash
