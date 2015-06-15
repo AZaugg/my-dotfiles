@@ -113,6 +113,17 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Added bash auto-completion
+# pip bash completion start
+_pip_completion()
+{
+    COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]}" \
+                   COMP_CWORD=$COMP_CWORD \
+                   PIP_AUTO_COMPLETE=1 $1 ) )
+}
+complete -o default -F _pip_completion pip
+# pip bash completion end
+
 # For site specific bash configs
 if [ -f ~/.bash_site_specific ]; then
    source  ~/.bash_site_specific
