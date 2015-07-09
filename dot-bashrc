@@ -134,6 +134,19 @@ _ssh_completion()
   COMPREPLY=( $(compgen -W "$opts" -- ${cur}) )
   return 0
 }
+
+_awslookup_completion()
+{
+  local cur prev opts
+  COMPREPLY=()
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  prev="${COMP_WORDS[COMP_CWORD-1]}"
+  opts=$(cat ~/.aws/tags | tr -d '{}"'|awk -F':' '{print $1}')
+  COMPREPLY=( $(compgen -W "$opts" -- ${cur}) )
+  return 0
+}
+
+complete -F _awslookup_completion awslookup
 complete -F _ssh_completion ssh
 
 # For site specific bash configs
