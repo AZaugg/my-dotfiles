@@ -124,6 +124,18 @@ _pip_completion()
 complete -o default -F _pip_completion pip
 # pip bash completion end
 
+_ssh_completion()
+{
+  local cur prev opts
+  COMPREPLY=()
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  prev="${COMP_WORDS[COMP_CWORD-1]}"
+  opts=$(grep '^Host' ~/.ssh/config | awk '{print $2}')
+  COMPREPLY=( $(compgen -W "$opts" -- ${cur}) )
+  return 0
+}
+complete -F _ssh_completion ssh
+
 # For site specific bash configs
 if [ -f ~/.bash_site_specific ]; then
    source  ~/.bash_site_specific
