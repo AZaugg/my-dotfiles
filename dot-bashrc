@@ -27,6 +27,44 @@ HISTFILESIZE=1000
 if [ -f $HOME/.http_proxy ];then
        source $HOME/.http_proxy
 fi
+function rdpaws {
+  scheme='PublicIpAddress'
+  i_id=$1
+
+  if [ "$#" -le 2 ]; then
+    echo "Not enough arguments, (instanceid, profile, [public, private])"
+    return 1
+  fi
+
+  if [ $3 == 'private' ]; then
+    scheme='PrivateIpAddress'
+  fi
+
+  if [ ${i_id:0:2} != "i-" ]; then
+    i_id="i-$i_id"
+  fi
+
+  if [ "$(uname -s)" = "Darwin" ]; then
+    if [ ! -f /Applications/Microsoft\ Remote\ Desktop.app/Contents/MacOS/Microsoft\ Remote\ Desktop ]; then
+      echo "RDP client not installed"
+      return 1
+    fi
+    output=$(aws ec2 describe-instances --profile $2 --instance-ids $i_id --query "Reservations[0].Instances[0].{RUNNING:State.Name,IPADDR:$scheme}" --output json)
+    ip=$(echo $output | awk '{print $5}' | sed -e "s/\"//g" -e "s/,//g")
+    running=$(echo $output |grep -c running)
+
+    if [ ! -f /tmp/$ip.rdp ]; then
+      echo -e "full address:s:$ip\n username:s:Administrator" > /tmp/${ip}.rdp
+    fi
+
+    if [ $running -gt 0 ]; then
+      /usr/bin/open /tmp/$ip.rdp
+    else
+      echo "Host $i_id unavailable"
+      return 1
+    fi
+  fi
+}
 
 function sshaws () {
   if [ "$#" -ne 2 ]; then
