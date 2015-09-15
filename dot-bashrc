@@ -67,11 +67,12 @@ function rdpaws {
 }
 
 function sshaws () {
-  if [ "$#" -ne 2 ]; then
-    echo "Not enough arguments"
+  if [ "$#" -le 2 ]; then
+    echo "Not enough arguments, (instanceid, profile, [public|private])"
     return 1
   fi
   
+  scheme='PrivateIpAddress'
   USERNAME="ec2-user"
   
   i_id=$1
@@ -79,11 +80,15 @@ function sshaws () {
     i_id="i-$i_id"
   fi
   
+  if [ $3 == 'public' ]; then
+    scheme='PublicIpAddress'
+  fi
+  
   #running=$(aws ec2 describe-instances --instance-ids  $i_id --profile $2 | grep -c '"Name": "running"')
   #ip=$(aws ec2 describe-instances --instance-ids  $i_id --profile $2 --output json | egrep -o '"PrivateIpAddress": "([0-9]{1,3}[\.]){3}[0-9]{1,3}"' |uniq| awk -F\" '{print $(NF-1)}')
   #key=$(aws ec2 describe-instances --instance-ids  $i_id --profile $2 --output json | egrep -o '"KeyName": ".*?"' | awk -F\" '{print $(NF-1)}')
   
-  output=$(aws ec2 describe-instances --instance-ids $i_id --profile $2 --query 'Reservations[0].Instances[0].{RUNNING:State.Name,IPADDR:PrivateIpAddress,KEY:KeyName}' --output json)
+  output=$(aws ec2 describe-instances --instance-ids $i_id --profile $2 --query "Reservations[0].Instances[0].{RUNNING:State.Name,IPADDR:$scheme,KEY:KeyName}" --output json)
 
   running=$(echo $output |grep -c running)
   ip=$(echo $output | awk '{print $5}' | sed -e "s/\"//g" -e "s/,//g")
