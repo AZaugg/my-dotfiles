@@ -32,7 +32,7 @@ function rdpaws {
   i_id=$1
 
   if [ "$#" -le 2 ]; then
-    echo "Not enough arguments, (instanceid, profile, [public, private])"
+    echo "Not enough arguments, (instanceid, profile, [public|private])"
     return 1
   fi
 
