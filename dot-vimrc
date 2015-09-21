@@ -4,3 +4,4 @@ set expandtab
 set tabstop=4
 set smartindent
 set sw=4
+set pastetoggle=<F2>
