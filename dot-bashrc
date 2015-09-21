@@ -31,12 +31,12 @@ function rdpaws {
   scheme='PublicIpAddress'
   i_id=$1
 
-  if [ "$#" -le 2 ]; then
+  if [ "$#" -le 1 ]; then
     echo "Not enough arguments, (instanceid, profile, [public|private])"
     return 1
   fi
 
-  if [ $3 == 'private' ]; then
+  if [ "$3" == 'private' ]; then
     scheme='PrivateIpAddress'
   fi
 
@@ -67,7 +67,7 @@ function rdpaws {
 }
 
 function sshaws () {
-  if [ "$#" -le 2 ]; then
+  if [ "$#" -le 1 ]; then
     echo "Not enough arguments, (instanceid, profile, [public|private])"
     return 1
   fi
@@ -80,7 +80,7 @@ function sshaws () {
     i_id="i-$i_id"
   fi
   
-  if [ $3 == 'public' ]; then
+  if [ "$3" == 'public' ]; then
     scheme='PublicIpAddress'
   fi
   
