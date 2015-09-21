@@ -27,35 +27,39 @@ HISTFILESIZE=1000
 if [ -f $HOME/.http_proxy ];then
        source $HOME/.http_proxy
 fi
-function rdpaws {
-  scheme='PublicIpAddress'
-  i_id=$1
-
+function aws_check_args () {
   if [ "$#" -le 1 ]; then
-    echo "Not enough arguments, (instanceid, profile, [public|private])"
+    echo "Not enough arguments, (instanceid, profile, [public, private])"
     return 1
   fi
 
-  if [ "$3" == 'private' ]; then
-    scheme='PrivateIpAddress'
-  fi
-
+  i_id=$1
   if [ ${i_id:0:2} != "i-" ]; then
     i_id="i-$i_id"
   fi
 
+  echo "$i_id"
+}
+
+function rdpaws () {
+  scheme='PublicIpAddress'
+  i_id=$(aws_check_args "$@")
+
+  if [ "$3" == 'private' ]; then
+    scheme='PrivateIpAddress'
+  fi
+  
+  output=$(aws ec2 describe-instances --profile $2 --instance-ids $i_id --query "Reservations[0].Instances[0].{RUNNING:State.Name,IPADDR:$scheme}" --output json)
+  ip=$(echo $output | awk '{print $5}' | sed -e "s/\"//g" -e "s/,//g")
+  running=$(echo $output |grep -c running)
+    
   if [ "$(uname -s)" = "Darwin" ]; then
     if [ ! -f /Applications/Microsoft\ Remote\ Desktop.app/Contents/MacOS/Microsoft\ Remote\ Desktop ]; then
       echo "RDP client not installed"
       return 1
     fi
-    output=$(aws ec2 describe-instances --profile $2 --instance-ids $i_id --query "Reservations[0].Instances[0].{RUNNING:State.Name,IPADDR:$scheme}" --output json)
-    ip=$(echo $output | awk '{print $5}' | sed -e "s/\"//g" -e "s/,//g")
-    running=$(echo $output |grep -c running)
 
-    if [ ! -f /tmp/$ip.rdp ]; then
-      echo -e "full address:s:$ip\n username:s:Administrator" > /tmp/${ip}.rdp
-    fi
+   echo -e "full address:s:$ip\n username:s:Administrator" > /tmp/${ip}.rdp
 
     if [ $running -gt 0 ]; then
       /usr/bin/open /tmp/$ip.rdp
@@ -67,18 +71,10 @@ function rdpaws {
 }
 
 function sshaws () {
-  if [ "$#" -le 1 ]; then
-    echo "Not enough arguments, (instanceid, profile, [public|private])"
-    return 1
-  fi
-  
   scheme='PrivateIpAddress'
   USERNAME="ec2-user"
-  
-  i_id=$1
-  if [ ${i_id:0:2} != "i-" ]; then
-    i_id="i-$i_id"
-  fi
+
+  i_id=$(aws_check_args "$@")  
   
   if [ "$3" == 'public' ]; then
     scheme='PublicIpAddress'
@@ -119,7 +115,7 @@ function awslookup (){
                --profile $2
 }
 
-function git_branch {
+function git_branch (){
    branch=$(git branch  2> /dev/null | grep \* | awk '{print $NF}')
 
    if [[ $branch != "" ]]; then
