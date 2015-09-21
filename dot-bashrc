@@ -43,6 +43,11 @@ function aws_check_args () {
   echo "$i_id"
 }
 
+function awsgetconsole () {
+  i_id=$(aws_check_args "$@")
+  aws ec2 get-console-output  --instance-id $1 --profile $2 --output text
+}
+
 function awsrdp () {
   scheme='PublicIpAddress'
   i_id=$(aws_check_args "$@")
