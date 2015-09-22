@@ -21,6 +21,8 @@ alias rdpaws='awsrdp'
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Development/python/
 export ALTERNATE_EDITOR=vim EDITOR=vim VISUAL=vim
+export GREP_OPTIONS='--color=auto'
+export HISTCONTROL=ignoredups
 
 # Set my history size
 HISTSIZE=10000
