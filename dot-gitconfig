@@ -9,6 +9,7 @@
 	cp = cherry-pick
 	fc = diff --name-only --diff-filter=U
 	loga = log --abbrev-commit --decorate --pretty=oneline
+	whatadded = log --diff-filter=A
 [push]
 	default = current
 [pull]
