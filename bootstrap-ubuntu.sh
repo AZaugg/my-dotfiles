@@ -24,6 +24,7 @@ keycode  37 = Super_L
 keycode 133 = Control_L
 add control = Control_L
 EOF
+xmodmap ~/.xmodmaprc
 
 # Get my dot files
 curl -so ~/.bashrc https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/dot-bashrc
