@@ -21,3 +21,7 @@ brew cask install virtualbox vagrant google-chrome atom slack hipchat iterm2
 apm install vim-mode language-puppet linter-puppet-lint linter-pylint
 
 gem install bundler
+
+# Set OSX specific settings
+defaults write com.apple.screencapture type jpg
+defaults write -g com.apple.mouse.scaling -float 1.5
