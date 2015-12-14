@@ -18,7 +18,7 @@ brew cask install virtualbox vagrant google-chrome atom slack hipchat iterm2
 # iTerm2 - install
  
 # Install atom plugins
-apm install vim-mode language-puppet linter-puppet-lint linter-pylint
+apm install highlight-selected language-puppet linter linter-pylint python-tools vim-mode atom-terminal-panel
 
 gem install bundler
 
