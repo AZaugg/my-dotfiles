@@ -2,7 +2,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 
 brew update
-brew install git wget python watch
+brew install git wget python watch unrar
 
 
 curl -so ~/.bashrc https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/dot-bashrc
@@ -14,9 +14,7 @@ pip install --upgrade pip
 pip install virtualenv requests
 
 brew cask install virtualbox vagrant google-chrome atom slack hipchat iterm2
- 
-# iTerm2 - install
- 
+
 # Install atom plugins
 apm install highlight-selected language-puppet linter linter-pylint python-tools vim-mode atom-terminal-panel
 
