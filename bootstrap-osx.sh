@@ -16,7 +16,7 @@ pip install virtualenv requests
 brew cask install virtualbox vagrant google-chrome atom slack hipchat iterm2
 
 # Install atom plugins
-apm install highlight-selected language-puppet linter linter-pylint python-tools vim-mode atom-terminal-panel
+apm install highlight-selected language-puppet linter linter-pylint python-tools vim-mode atom-terminal-panel todo-show minimap
 
 gem install bundler
 
