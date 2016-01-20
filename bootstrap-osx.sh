@@ -11,7 +11,7 @@ curl -so ~/.vimrc https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/do
 
 pip install --upgrade setuptools
 pip install --upgrade pip 
-pip install virtualenv requests
+pip install virtualenv requests virtualenvwrapper
 
 brew cask install virtualbox vagrant google-chrome atom slack hipchat iterm2
 
