@@ -25,3 +25,9 @@ defaults write com.apple.screencapture type jpg
 defaults write -g com.apple.mouse.scaling -float 1.5
 defaults write -g InitialKeyRepeat -int 15
 defaults write -g KeyRepeat -int 2
+
+# Set screenshot location
+mkdir ~/Pictures/Screenshots
+defaults write com.apple.screencapture location ~/Pictures/Screenshots
+killall SystemUIServer
+
