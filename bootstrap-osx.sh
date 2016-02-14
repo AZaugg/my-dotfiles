@@ -2,7 +2,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 
 brew update
-brew install git wget python watch unrar jq
+brew install git wget python watch unrar jq docker-machine docker
 
 
 curl -so ~/.bashrc https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/dot-bashrc
