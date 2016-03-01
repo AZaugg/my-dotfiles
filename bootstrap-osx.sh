@@ -26,6 +26,11 @@ defaults write -g com.apple.mouse.scaling -float 1.5
 defaults write -g InitialKeyRepeat -int 15
 defaults write -g KeyRepeat -int 2
 
+# Prevent annoying apps from starting when phones plugged in
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool YES
+
+
+
 # Set screenshot location
 mkdir ~/Pictures/Screenshots
 defaults write com.apple.screencapture location ~/Pictures/Screenshots
