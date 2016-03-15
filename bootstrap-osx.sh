@@ -8,7 +8,7 @@ echo "Rummaging for my dot things"
 curl -so ~/.bashrc https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/dot-bashrc
 curl -so ~/.gitconfig https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/dot-gitconfig
 curl -so ~/.vimrc https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/dot-vimrc
-curl -so ~/.dot-dev_folder_completion.rb https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/dot-dev_folder_completion.rb
+curl -so ~/.dev_folder_completion.rb https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/dot-dev_folder_completion.rb
 
 echo "Doing my pip things"
 pip install --upgrade setuptools pip 
