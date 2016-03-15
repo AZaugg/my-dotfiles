@@ -8,6 +8,7 @@ brew install git wget python watch unrar jq docker-machine docker
 curl -so ~/.bashrc https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/dot-bashrc
 curl -so ~/.gitconfig https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/dot-gitconfig
 curl -so ~/.vimrc https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/dot-vimrc
+curl -so ~/.dot-dev_folder_completion.rb https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/dot-dev_folder_completion.rb
 
 pip install --upgrade setuptools pip 
 pip install virtualenv requests 
@@ -36,3 +37,5 @@ mkdir ~/Pictures/Screenshots
 defaults write com.apple.screencapture location ~/Pictures/Screenshots
 killall SystemUIServer
 
+# Folder structure
+mkdir ~/Development

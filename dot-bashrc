@@ -203,7 +203,7 @@ function cdd()
 
 complete -F _awslookup_completion awslookup
 complete -F _ssh_completion ssh
-complete -C ~/.dev_folder -o filenames -o nospace dev
+complete -C ~/.dev_folder_completion.rb -o filenames -o nospace dev
 
 # For site specific bash configs
 if [ -f ~/.bash_site_specific ]; then
