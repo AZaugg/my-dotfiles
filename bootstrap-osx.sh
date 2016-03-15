@@ -9,9 +9,9 @@ curl -so ~/.bashrc https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/d
 curl -so ~/.gitconfig https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/dot-gitconfig
 curl -so ~/.vimrc https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/dot-vimrc
 
-pip install --upgrade setuptools
-pip install --upgrade pip 
-pip install virtualenv requests virtualenvwrapper
+pip install --upgrade setuptools pip 
+pip install virtualenv requests 
+sudo pip install virtualenvwrapper
 
 brew cask install virtualbox vagrant google-chrome atom slack hipchat iterm2 bash-completion git
 
