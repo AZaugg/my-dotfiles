@@ -9,6 +9,7 @@ curl -so ~/.bashrc https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/d
 curl -so ~/.gitconfig https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/dot-gitconfig
 curl -so ~/.vimrc https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/dot-vimrc
 curl -so ~/.dev_folder_completion.rb https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/dot-dev_folder_completion.rb
+chmod 0775 ~/.dev_folder_completion.rb
 
 echo "Doing my pip things"
 pip install --upgrade setuptools pip 
@@ -18,7 +19,7 @@ sudo pip install virtualenvwrapper
 echo "Install atom packages"
 apm install highlight-selected language-puppet linter linter-pylint python-tools vim-mode atom-terminal-panel todo-show minimap fold-functions
 
-gem install bundler
+sudo gem install bundler
 
 echo "Setting OSX to how I like it"
 defaults write com.apple.screencapture type jpg
