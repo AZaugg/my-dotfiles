@@ -13,7 +13,7 @@ pip install --upgrade setuptools
 pip install --upgrade pip 
 pip install virtualenv requests virtualenvwrapper
 
-brew cask install virtualbox vagrant google-chrome atom slack hipchat iterm2
+brew cask install virtualbox vagrant google-chrome atom slack hipchat iterm2 bash-completion git
 
 # Install atom plugins
 apm install highlight-selected language-puppet linter linter-pylint python-tools vim-mode atom-terminal-panel todo-show minimap fold-functions
