@@ -196,8 +196,14 @@ _awslookup_completion()
   return 0
 }
 
+function cdd()
+{
+  cd "$HOME/Development/$1"
+}
+
 complete -F _awslookup_completion awslookup
 complete -F _ssh_completion ssh
+complete -C ~/.dev_folder -o filenames -o nospace dev
 
 # For site specific bash configs
 if [ -f ~/.bash_site_specific ]; then
