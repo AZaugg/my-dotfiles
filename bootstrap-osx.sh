@@ -13,7 +13,7 @@ chmod 0775 ~/.dev_folder_completion.rb
 
 echo "Doing my pip things"
 pip install --upgrade setuptools pip 
-pip install virtualenv requests 
+pip install virtualenv requests pylint
 sudo pip install virtualenvwrapper
 
 echo "Install atom packages"
