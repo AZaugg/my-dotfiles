@@ -1,15 +1,14 @@
 echo "Doing brew things"
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
-brew install git wget python watch unrar jq docker-machine docker bash-completion git
-brew cask install virtualbox vagrant google-chrome atom slack hipchat iterm2 
+brew install git wget python watch unrar jq docker-machine docker bash-completion
+brew cask install virtualbox vagrant google-chrome atom slack iterm2 wireshark
 
 echo "Rummaging for my dot things"
 curl -so ~/.bashrc https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/dot-bashrc
 curl -so ~/.gitconfig https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/dot-gitconfig
 curl -so ~/.vimrc https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/dot-vimrc
-curl -so ~/.dev_folder_completion.rb https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/dot-dev_folder_completion.rb
-chmod 0775 ~/.dev_folder_completion.rb
+
 
 echo "Doing my pip things"
 pip install --upgrade setuptools pip 
