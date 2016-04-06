@@ -9,6 +9,10 @@ curl -so ~/.bashrc https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/d
 curl -so ~/.gitconfig https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/dot-gitconfig
 curl -so ~/.vimrc https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/dot-vimrc
 
+echo "python config"
+mkdir ~/.config
+curl -so ~/.config/pep8 https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/pep8
+
 
 echo "Doing my pip things"
 pip install --upgrade setuptools pip 
