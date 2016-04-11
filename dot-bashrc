@@ -26,6 +26,8 @@ export HISTCONTROL=ignoredups
 # Set my history size
 HISTSIZE=10000
 HISTFILESIZE=1000
+HISTTIMEFORMAT='%d-%m-%y %T '
+PROMPT_COMMAND='history -a'
 
 if [ -f $HOME/.http_proxy ];then
        source $HOME/.http_proxy
