@@ -20,7 +20,7 @@ pip install virtualenv requests pylint
 sudo pip install virtualenvwrapper
 
 echo "Install atom packages"
-apm install highlight-selected language-puppet linter linter-pylint python-tools vim-mode atom-terminal-panel todo-show minimap fold-functions
+apm install highlight-selected language-puppet linter linter-pylint python-tools vim-mode atom-terminal-panel todo-show minimap fold-functions git-plus file-icons
 
 sudo gem install bundler
 
