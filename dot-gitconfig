@@ -10,6 +10,8 @@
 	fc = diff --name-only --diff-filter=U
 	loga = log --abbrev-commit --decorate --pretty=oneline
 	whatadded = log --diff-filter=A
+	rbtp = "!f() { $(which rbt) post -g --target-groups sysops-reviewers --publish; }; f"
+	rbtu = "!f() { $(which rbt) post -u --publish; }; f"
 [push]
 	default = current
 [pull]
