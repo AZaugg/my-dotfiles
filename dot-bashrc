@@ -15,6 +15,8 @@ shopt -s checkwinsize
 alias ls='ls -FG'
 alias sshaws='awsssh'
 alias rdpaws='awsrdp'
+alias cddev='cd ~/Development/'
+alias cdtop='cd $(git rev-parse --show-toplevel)'
 
 # My Exports
 export WORKON_HOME=$HOME/.virtualenvs
@@ -22,6 +24,7 @@ export PROJECT_HOME=$HOME/Development/python/
 export ALTERNATE_EDITOR=vim EDITOR=vim VISUAL=vim
 export GREP_OPTIONS='--color=auto'
 export HISTCONTROL=ignoredups
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 
 # Set my history size
 HISTSIZE=10000
@@ -132,8 +135,15 @@ function git_branch (){
      echo "[$branch]"
    fi
 }
+function git_stash (){
+   stash=$(git stash list 2>/dev/null)
 
-export PS1=`echo '\033[0;31;1m[\u@\h] \033[0;36;1m[\T] \033[0;32;1m \w \033[0;0m''$(git_branch)'" \n$ "`
+   if [[ $stash != "" ]]; then
+       echo "-stashedChanges"
+   fi
+}
+
+export PS1=`echo '\033[0;31;1m[\u@\h] \033[0;36;1m[\T] \033[0;32;1m \w \033[0;0m''$(git_branch)' '$(git_stash)'" \n$ "`
 
 if [ -f ~/.git-completion.bash ]; then
         . ~/.git-completion.bash
