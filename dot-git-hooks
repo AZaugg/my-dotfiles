@@ -1,0 +1,11 @@
+#!/bin/sh
+
+for file in $(git diff --cached --name-only | grep json$);  do
+    echo $file
+    python -mjson.tool $file 2> /dev/null
+    if [ $? -ne 0 ] ; then
+        echo  "\033[31mLint check of JSON object failed. Your changes were not commited.\033[m"
+        echo "\tin $git_dir/$file:"
+        exit 1
+    fi
+done
