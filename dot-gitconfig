@@ -12,6 +12,7 @@
 	whatadded = log --diff-filter=A
 	rbtp = "!f() { $(which rbt) post -g --target-groups sysops-reviewers --publish; }; f"
 	rbtu = "!f() { $(which rbt) post -u --publish; }; f"
+	find = "!f() { git ls-files |grep $1; }; f"
 [push]
 	default = current
 [pull]
