@@ -30,7 +30,8 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 HISTSIZE=10000
 HISTFILESIZE=1000
 HISTTIMEFORMAT='%d-%m-%y %T '
-PROMPT_COMMAND='history -a'
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+export HISTIGNORE="&:ls:[bf]g:exit:pwd:history:clear"
 
 if [ -f $HOME/.http_proxy ];then
        source $HOME/.http_proxy
