@@ -35,6 +35,7 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool YES
 
 # Set screenshot location
 mkdir ~/Development
+mkdir ~/Vagrant
 mkdir ~/Pictures/Screenshots
 defaults write com.apple.screencapture location ~/Pictures/Screenshots
 killall SystemUIServer
