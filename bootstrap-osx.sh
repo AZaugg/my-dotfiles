@@ -2,7 +2,7 @@ echo "Doing brew things"
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
 brew install git wget python watch unrar jq docker-machine docker bash-completion docker-compose ansible
-brew cask install virtualbox vagrant google-chrome atom slack iterm2 wireshark flux
+brew cask install virtualbox vagrant google-chrome visual-studio-code slack iterm2 wireshark flux
 
 echo "Rummaging for my dot things"
 curl -so ~/.bashrc https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/dot-bashrc
