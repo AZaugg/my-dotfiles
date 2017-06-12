@@ -13,15 +13,11 @@ echo "python config"
 mkdir ~/.config
 curl -so ~/.config/pep8 https://raw.githubusercontent.com/AZaugg/my-dotfiles/master/pep8
 
-
 echo "Doing my pip things"
 pip install --upgrade setuptools pip 
 pip install virtualenv requests pylint
 sudo pip install virtualenvwrapper
 
-echo "Install atom packages"
-apm install highlight-selected language-puppet linter linter-pylint python-tools vim-mode atom-terminal-panel todo-show minimap fold-functions git-plus file-icons
-apm install goto language-cfengine3 tabs-to-spaces language-docker
 sudo gem install bundler
 
 echo "Setting OSX to how I like it"
