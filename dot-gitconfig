@@ -13,6 +13,7 @@
 	rbtp = "!f() { $(which rbt) post -g --target-groups sysops-reviewers --publish; }; f"
 	rbtu = "!f() { $(which rbt) post -u --publish; }; f"
 	find = "!f() { git ls-files |grep $1; }; f"
+	cleanbranches = "!f() { git branch --merged | egrep -v "(^\*|master|integration)" | xargs git branch -d }; f"
 [push]
 	default = current
 [pull]
