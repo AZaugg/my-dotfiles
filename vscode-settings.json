@@ -1,0 +1,15 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "vim.disableAnnoyingNeovimMessage": true,
+    "python.linting.pylintArgs": ["--disable=C0301"],
+    "gitlens.codeLens.enabled": false,
+    "gitlens.annotations.file.gutter.format": "${id} ${author|10?}",
+    "files.exclude": {
+        "**/._*": true,
+        "**/*.pyc": true
+    },
+    "vsicons.dontShowNewVersionMessage": true,
+    "editor.minimap.enabled": false,
+    "window.zoomLevel": 1
+}
+    
