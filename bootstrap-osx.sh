@@ -28,6 +28,8 @@ defaults write -g KeyRepeat -int 2
 
 # Prevent annoying apps from starting when phones plugged in
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool YES
+defaults write /Library/Preferences/.GlobalPreferences AppleInterfaceTheme Dark
+
 
 # Set screenshot location
 mkdir ~/Development
