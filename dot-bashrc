@@ -25,6 +25,8 @@ export ALTERNATE_EDITOR=vim EDITOR=vim VISUAL=vim
 export GREP_OPTIONS='--color=auto'
 export HISTCONTROL=ignoredups
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+export PIP_RESPECT_VIRTUALENV=true
+export PIP_REQUIRE_VIRTUALENV=true
 
 # Set my history size
 HISTSIZE=10000
